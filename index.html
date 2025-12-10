@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Universitario</title>
+
+    <link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+
+    <h1>Sistema Universitario</h1>
+
+    <!-- ========================================================= -->
+    <!-- AGREGAR RECURSO -->
+    <!-- ========================================================= -->
+    <section class="card">
+        <h2>Agregar Recurso</h2>
+
+        <form id="resourceForm">
+            <select id="tipo" required>
+                <option value="">Seleccione Tipo</option>
+                <option value="Libro">Libro</option>
+                <option value="Artículo">Artículo</option>
+            </select>
+
+            <input type="text" id="nombre" placeholder="Nombre" required>
+            <input type="text" id="autor" placeholder="Autor" required>
+
+            <input type="number" id="anio" placeholder="Año (solo artículos)" disabled>
+            <input type="number" id="paginas" placeholder="Páginas (solo libros)" disabled>
+
+            <button type="submit" class="btn-primary">Guardar</button>
+        </form>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- BUSCAR RECURSOS -->
+    <!-- ========================================================= -->
+    <section class="card">
+        <h2>Buscar Recursos</h2>
+
+        <form id="form-buscar">
+            <input type="text" id="buscar-texto" placeholder="Buscar por nombre, autor o año">
+            <button type="submit" class="btn-primary">Buscar</button>
+        </form>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- LISTADO -->
+    <!-- ========================================================= -->
+    <section class="card">
+        <h2>Listado</h2>
+        <div>
+            <table border="1" width="100%">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Tipo</th>
+                        <th>Autor</th>
+                        <th>Año</th>
+                        <th>Páginas</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaRecursos"></tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- EDITAR RECURSO -->
+    <!-- ========================================================= -->
+    <section class="card" id="card-editar" style="display:none;">
+        <h2>Editar Recurso</h2>
+
+        <form id="form-editar">
+            <input type="hidden" id="edit-id">
+            <input type="text" id="edit-nombre" placeholder="Nuevo Nombre" required>
+            <input type="text" id="edit-autor" placeholder="Nuevo Autor" required>
+            <input type="number" id="edit-anio" placeholder="Año del Artículo">
+            <input type="number" id="edit-paginas" placeholder="Páginas del Libro">
+
+            <button type="submit" class="btn-primary">Guardar Cambios</button>
+        </form>
+    </section>
+
+    <script type="module" src="/src/main.ts"></script>
+
+</body>
+</html>
